@@ -80,12 +80,6 @@ def main():
     retarget_gripper_action_list = np.load(os.path.join(data_path, "processed_3d", "retarget_gripper_action.npy"))
     retarget_gripper_action_list =  np.where(retarget_gripper_action_list>args.gripper_threshold, 1, 0).astype(float)
 
-    for i in range(len(eef_pose_list)):
-        eef_pose = eef_pose_list[i]    
-        eef_rotation = quat_to_rmat(eef_pose[3:])
-        eef_pose_list[i][:3] -= eef_rotation @ np.array([0,0,0.062]).T
-
-
     
     # initialize the robot
     start_time = time.time()
