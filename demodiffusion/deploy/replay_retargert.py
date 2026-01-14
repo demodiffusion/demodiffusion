@@ -29,7 +29,7 @@ def parse_args():
     parser.add_argument("--record", action="store_true", help="if true, save videos")
 
     ## gripper threshold from human demo
-    parser.add_argument("--gripper_threshold", type=float, default=0.2, help="time denoise")
+    parser.add_argument("--gripper_threshold", type=float, default=0.2, help="gripper threshold")
     
 
     return parser.parse_args()
@@ -37,7 +37,6 @@ def parse_args():
 
 def main():
     args = parse_args()
-    FIRST_TIME = True
 
     # create a single arm environment
     DROID_CONTROL_FREQUENCY = 15
