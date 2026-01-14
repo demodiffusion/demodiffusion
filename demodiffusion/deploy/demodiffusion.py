@@ -25,7 +25,6 @@ RETARGET_MODE = "cartesian_position"
 # We follow configuration from Pi-0. Only difference is that we increase denoising step as 20 for both Pi-0 and DemoDiffusion.
 open_loop_horizon = 8
 predict_action_horizon = 10    
-time_denoise = args.time_denoise
 full_action_dim = 32
 droid_action_dim = 8
 
@@ -47,13 +46,15 @@ def parse_args():
     parser.add_argument("--record", action="store_true", help="if true, save videos")
         
     ## gripper threshold from human demo
-    parser.add_argument("--gripper_threshold", type=float, default=0.2, help="time denoise")
+    parser.add_argument("--gripper_threshold", type=float, default=0.2, help="gripper threshold")
 
 
     return parser.parse_args()
 
 def main():
     args = parse_args()
+    time_denoise = args.time_denoise
+
 
     hydra.initialize(config_path="manimo/manimo/conf", job_name="collect_demos_test")
     env_cfg = hydra.compose(config_name="env")
@@ -251,7 +252,7 @@ def main():
             Image.fromarray(wrist_img_raw).save(os.path.join(SAVE_PATH +'/raw', f"wrist_{idx:04d}.png"))        
     
 
-    Print("Inference Done!!! Press c+enter to reset the robot.")
+    print("Inference Done!!! Press c+enter to reset the robot.")
     import pdb; pdb.set_trace()
     
     env.actuators[1].step([0]) # open the gripper

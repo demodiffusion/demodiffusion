@@ -141,7 +141,7 @@ Once you have human demonstration, save kinematically retargeted robot end effec
     cd PATH_TO_DEMODIFFUSION/demodiffusion/deploy
     conda activate manimo-latest
     
-    python demodiffusion.py --task_name $TASK_NAME --traj_num $TRAJ_NUM --time_denoise NOISE_LEVEL 
+    python demodiffusion.py --task $TASK_NAME --traj $TRAJ_NUM --time_denoise NOISE_LEVEL 
     ```
 
     - We use noise level 0.2 (for tasks where Pi-0 completely fails) and 0.4 (for tasks where Pi-0 show nonzero success rate) in the paper.
@@ -155,7 +155,7 @@ Once you have human demonstration, save kinematically retargeted robot end effec
     cd PATH_TO_DEMODIFFUSION/demodiffusion/deploy
     conda activate manimo-latest
     
-    python replay_retarget.py --task_name $TASK_NAME --traj_num $TRAJ_NUM  
+    python replay_retarget.py --task $TASK_NAME --traj $TRAJ_NUM  
     ```
 
 <br>
