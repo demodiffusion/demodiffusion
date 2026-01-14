@@ -1,9 +1,9 @@
 [submodule "demodiffusion/collect/hamer"]
 	path = demodiffusion/collect/hamer
-	url = https://github.com/RUreadyo/hamer.git
+	url = https://github.com/demodiffusion/hamer.git
 [submodule "demodiffusion/deploy/openpi"]
 	path = demodiffusion/deploy/openpi
-	url = https://github.com/RUreadyo/openpi.git
+	url = https://github.com/demodiffusion/openpi.git
 [submodule "demodiffusion/deploy/manimo"]
 	path = demodiffusion/deploy/manimo
-	url = https://github.com/RUreadyo/manimo.git
+	url = https://github.com/demodiffusion/manimo.git
