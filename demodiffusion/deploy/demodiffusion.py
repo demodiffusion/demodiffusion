@@ -192,7 +192,7 @@ def main():
                 
                 "retargeted_actions": actions_demo,
                 "time": time_denoise,
-                "action_dim_used" : droid_action_dim
+                "action_dim_used" : droid_action_dim  # deprecated: hardcoded to 8 in pi0.py due to JAX JIT issues
             }
 
             pred_action_chunk = client.infer(observation)["actions"][:, :droid_action_dim]
